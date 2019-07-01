@@ -1,0 +1,48 @@
+﻿@model DndMagicLibrary.Models.Overview
+@{
+    ViewBag.Title = "D&D Magic Library";
+}
+
+<div class="jumbotron">
+    <h1>D&D Magic Library</h1>
+    <p class="lead">This application will display D&D spells by class and level.</p>
+    <p>It uses the <a href="http://www.dnd5eapi.co/" class="btn btn-primary btn-lg">D&D API</a></p>
+</div>
+
+<h2 class="text-center my-2">D&D Spellcasting Classes</h2>
+<div class="row">
+    <div class="col-md-3">
+        <h2>Bard</h2>
+        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Bard").Select(x => x.Description))</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Cleric</h2>
+        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Cleric").Select(x => x.Description))</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Druid</h2>
+        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Druid").Select(x => x.Description))</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Paladin</h2>
+        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Paladin").Select(x => x.Description))</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <h2>Ranger</h2>
+        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Ranger").Select(x => x.Description))</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Sorcerer</h2>
+        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Sorcerer").Select(x => x.Description))</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Warlock</h2>
+        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Warlock").Select(x => x.Description))</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Wizard</h2>
+        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Wizard").Select(x => x.Description))</p>
+    </div>
+</div>
