@@ -15,5 +15,10 @@ namespace DndMagicLibrary.Controllers
             overview.Classes = overview.GetDndClasses();
             return View(overview);
         }
+
+        public ViewResult FindClass()
+        {
+            return View();
+        }
     }
 }

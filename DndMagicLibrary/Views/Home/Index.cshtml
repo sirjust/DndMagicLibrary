@@ -9,40 +9,41 @@
     <p>It uses the <a href="http://www.dnd5eapi.co/" class="btn btn-primary btn-lg">D&D API</a></p>
 </div>
 
-<h2 class="text-center my-2">D&D Spellcasting Classes</h2>
+<h1 class="text-center my-4 btn-outline-info">D&D Spellcasting Classes</h1>
 <div class="row">
     <div class="col-md-3">
-        <h2>Bard</h2>
+        <h2 class="text-center">Bard</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Bard").Select(x => x.Description))</p>
+        <p class="text-center">@Html.ActionLink("See Bard Class", "FindClass", "Class/Bard")</p>
     </div>
     <div class="col-md-3">
-        <h2>Cleric</h2>
+        <h2 class="text-center">Cleric</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Cleric").Select(x => x.Description))</p>
     </div>
     <div class="col-md-3">
-        <h2>Druid</h2>
+        <h2 class="text-center">Druid</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Druid").Select(x => x.Description))</p>
     </div>
     <div class="col-md-3">
-        <h2>Paladin</h2>
+        <h2 class="text-center">Paladin</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Paladin").Select(x => x.Description))</p>
     </div>
 </div>
 <div class="row">
     <div class="col-md-3">
-        <h2>Ranger</h2>
+        <h2 class="text-center">Ranger</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Ranger").Select(x => x.Description))</p>
     </div>
     <div class="col-md-3">
-        <h2>Sorcerer</h2>
+        <h2 class="text-center">Sorcerer</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Sorcerer").Select(x => x.Description))</p>
     </div>
     <div class="col-md-3">
-        <h2>Warlock</h2>
+        <h2 class="text-center">Warlock</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Warlock").Select(x => x.Description))</p>
     </div>
     <div class="col-md-3">
-        <h2>Wizard</h2>
+        <h2 class="text-center">Wizard</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Wizard").Select(x => x.Description))</p>
     </div>
 </div>

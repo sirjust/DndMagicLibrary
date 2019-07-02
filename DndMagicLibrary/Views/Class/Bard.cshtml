@@ -1,0 +1,16 @@
+﻿@model DndMagicLibrary.Models.DndClass
+<script src="/Scripts/jquery-3.4.1.min.js"></script>
+@{
+    ViewBag.Title = "Bard";
+}
+
+<h2>Bard</h2>
+
+<p>This is a page about the @Model.ClassName class.</p>
+<p id="api-data"></p>
+
+<script>
+    $("#api-data").load("https://www.dnd5eapi.co/api/classes/2", function () {
+        console.log("Data has loaded");
+    });
+</script>
