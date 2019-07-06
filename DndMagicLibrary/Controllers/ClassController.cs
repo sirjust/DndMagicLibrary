@@ -17,34 +17,18 @@ namespace DndMagicLibrary.Controllers
             return View();
         }
 
-        public ActionResult Bard()
+        public async Task<ActionResult> Bard()
         {
-            var bard = new DndClass { Name = "Bard" };
+            var bardParam = new DndClass { Name = "Bard", Index = 2 };
+            var bard = await GetClassData(bardParam);
             return View(bard);
         }
 
-        [HttpGet]
-        public async Task<DndClass> GetData()
+        public async Task<ActionResult> Cleric()
         {
-            var url = "classes/2";
-            DndClass dndClass = default;
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(ApiHelper.ApiClient.BaseAddress + url))
-            {
-                if (response.IsSuccessStatusCode)
-                {
-                    dndClass = await response.Content.ReadAsAsync<DndClass>();
-                    return dndClass;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
-            }
-        }
-
-        public ActionResult Cleric()
-        {
-            return View();
+            var clericParam = new DndClass { Name = "Cleric", Index = 3 };
+            var cleric = await GetClassData(clericParam);
+            return View(cleric);
         }
 
         public ActionResult Druid()
@@ -70,6 +54,44 @@ namespace DndMagicLibrary.Controllers
         public ActionResult Warlock()
         {
             return View();
+        }
+
+        [HttpGet]
+        public async Task<DndClass> GetClassData(DndClass dndClassParam)
+        {
+            var url = $"classes/{dndClassParam.Index}";
+            DndClass dndClass = default;
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(ApiHelper.ApiClient.BaseAddress + url))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    dndClass = await response.Content.ReadAsAsync<DndClass>();
+                    return dndClass;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        [HttpGet]
+        public async Task<Spellcasting_Ability> GetSpellcastingData()
+        {
+            string url = "http://www.dnd5eapi.co/api/spellcasting/1";
+            var spellCastingAbility = new Spellcasting_Ability();
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    spellCastingAbility = await response.Content.ReadAsAsync<Spellcasting_Ability>();
+                    return spellCastingAbility;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
         }
     }
 }

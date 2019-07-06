@@ -7,4 +7,19 @@
 <h2>Bard</h2>
 
 <p>This is a page about the @Model.Name class.</p>
-<p class="text-center">@Html.ActionLink("BardText", "GetData")</p>
+<p>@Model.Description</p>
+<p>The @Model.Name's Hit Die is @Model.Hit_Die</p>
+
+<h2 class="text-center">Click on a level for spell details</h2>
+@Html.ActionLink("1", "Spell", "1")
+@Html.ActionLink("2", "Spell", "2")
+@Html.ActionLink("3", "Spell", "3")
+@Html.ActionLink("4", "Spell", "4")
+@Html.ActionLink("5", "Spell", "5")
+@Html.ActionLink("6", "Spell", "6")
+@Html.ActionLink("7", "Spell", "7")
+@Html.ActionLink("8", "Spell", "8")
+@Html.ActionLink("9", "Spell", "9")
+
+<h2 class="text-center">Click below for more information about the @Model.Name's spellcasting</h2>
+@Html.ActionLink("Spellcasting", "GetSpellcastingData")

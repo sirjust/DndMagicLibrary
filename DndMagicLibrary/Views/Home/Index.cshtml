@@ -19,31 +19,38 @@
     <div class="col-md-3">
         <h2 class="text-center">Cleric</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.Name == "Cleric").Select(x => x.Description))</p>
+        <p class="text-center">@Html.ActionLink("See Cleric Class", "FindClass", "Class/Cleric")</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Druid</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.Name == "Druid").Select(x => x.Description))</p>
+        <p class="text-center">@Html.ActionLink("See Druid Class", "FindClass", "Class/Druid")</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Paladin</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.Name == "Paladin").Select(x => x.Description))</p>
+        <p class="text-center">@Html.ActionLink("See Paladin Class", "FindClass", "Class/Paladin")</p>
     </div>
 </div>
 <div class="row">
     <div class="col-md-3">
         <h2 class="text-center">Ranger</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.Name == "Ranger").Select(x => x.Description))</p>
+        <p class="text-center">@Html.ActionLink("See Ranger Class", "FindClass", "Class/Ranger")</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Sorcerer</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.Name == "Sorcerer").Select(x => x.Description))</p>
+        <p class="text-center">@Html.ActionLink("See Sorcerer Class", "FindClass", "Class/Sorcerer")</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Warlock</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.Name == "Warlock").Select(x => x.Description))</p>
+        <p class="text-center">@Html.ActionLink("See Warlock Class", "FindClass", "Class/Warlock")</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Wizard</h2>
         <p>@String.Join("", Model.Classes.Where(x => x.Name == "Wizard").Select(x => x.Description))</p>
+        <p class="text-center">@Html.ActionLink("See Wizard Class", "FindClass", "Class/Wizard")</p>
     </div>
 </div>
