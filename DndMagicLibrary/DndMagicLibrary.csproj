@@ -162,6 +162,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ApiHelper.cs" />
     <Compile Include="Models\DndClass.cs" />
     <Compile Include="Models\Overview.cs" />
     <Compile Include="Models\Spell.cs" />

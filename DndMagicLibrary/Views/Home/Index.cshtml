@@ -13,37 +13,37 @@
 <div class="row">
     <div class="col-md-3">
         <h2 class="text-center">Bard</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Bard").Select(x => x.Description))</p>
+        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Bard").Select(x => x.Description))</p>
         <p class="text-center">@Html.ActionLink("See Bard Class", "FindClass", "Class/Bard")</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Cleric</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Cleric").Select(x => x.Description))</p>
+        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Cleric").Select(x => x.Description))</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Druid</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Druid").Select(x => x.Description))</p>
+        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Druid").Select(x => x.Description))</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Paladin</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Paladin").Select(x => x.Description))</p>
+        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Paladin").Select(x => x.Description))</p>
     </div>
 </div>
 <div class="row">
     <div class="col-md-3">
         <h2 class="text-center">Ranger</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Ranger").Select(x => x.Description))</p>
+        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Ranger").Select(x => x.Description))</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Sorcerer</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Sorcerer").Select(x => x.Description))</p>
+        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Sorcerer").Select(x => x.Description))</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Warlock</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Warlock").Select(x => x.Description))</p>
+        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Warlock").Select(x => x.Description))</p>
     </div>
     <div class="col-md-3">
         <h2 class="text-center">Wizard</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.ClassName == "Wizard").Select(x => x.Description))</p>
+        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Wizard").Select(x => x.Description))</p>
     </div>
 </div>

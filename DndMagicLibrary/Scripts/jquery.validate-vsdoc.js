@@ -852,7 +852,7 @@ $.extend($.validator, {
 		creditcard: {creditcard: true}
 	},
 	
-	addClassRules: function(className, rules) {
+	addClassRules: function(Name, rules) {
 		/// <summary>
 		/// Add a compound class method - useful to refactor common combinations of rules into a single
 		/// class.
@@ -864,9 +864,9 @@ $.extend($.validator, {
 		/// The compound rules
 		/// </param>
 
-		className.constructor == String ?
-			this.classRuleSettings[className] = rules :
-			$.extend(this.classRuleSettings, className);
+		Name.constructor == String ?
+			this.classRuleSettings[Name] = rules :
+			$.extend(this.classRuleSettings, Name);
 	},
 	
 	classRules: function(element) {

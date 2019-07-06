@@ -747,7 +747,7 @@ intellisense.annotate(jQuery.fn, {
   'addClass': function() {
     /// <signature>
     ///   <summary>Adds the specified class(es) to each of the set of matched elements.</summary>
-    ///   <param name="className" type="String">One or more space-separated classes to be added to the class attribute of each matched element.</param>
+    ///   <param name="Name" type="String">One or more space-separated classes to be added to the class attribute of each matched element.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
@@ -1460,7 +1460,7 @@ intellisense.annotate(jQuery.fn, {
   'hasClass': function() {
     /// <signature>
     ///   <summary>Determine whether any of the matched elements are assigned the given class.</summary>
-    ///   <param name="className" type="String">The class name to search for.</param>
+    ///   <param name="Name" type="String">The class name to search for.</param>
     ///   <returns type="Boolean" />
     /// </signature>
   },
@@ -2177,7 +2177,7 @@ intellisense.annotate(jQuery.fn, {
   'removeClass': function() {
     /// <signature>
     ///   <summary>Remove a single class, multiple classes, or all classes from each element in the set of matched elements.</summary>
-    ///   <param name="className" type="String">One or more space-separated classes to be removed from the class attribute of each matched element.</param>
+    ///   <param name="Name" type="String">One or more space-separated classes to be removed from the class attribute of each matched element.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
@@ -2472,12 +2472,12 @@ intellisense.annotate(jQuery.fn, {
   'toggleClass': function() {
     /// <signature>
     ///   <summary>Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.</summary>
-    ///   <param name="className" type="String">One or more class names (separated by spaces) to be toggled for each element in the matched set.</param>
+    ///   <param name="Name" type="String">One or more class names (separated by spaces) to be toggled for each element in the matched set.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
     ///   <summary>Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.</summary>
-    ///   <param name="className" type="String">One or more class names (separated by spaces) to be toggled for each element in the matched set.</param>
+    ///   <param name="Name" type="String">One or more class names (separated by spaces) to be toggled for each element in the matched set.</param>
     ///   <param name="switch" type="Boolean">A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.</param>
     ///   <returns type="jQuery" />
     /// </signature>

@@ -943,7 +943,7 @@ window.Modernizr = (function( window, document, undefined ) {
     for ( var feature in tests ) {
         if ( hasOwnProp(tests, feature) ) {
             // run the test, throw the return value into the Modernizr,
-            //   then based on that boolean, define an appropriate className
+            //   then based on that boolean, define an appropriate Name
             //   and push it into an array of classes we'll join later.
             featureName  = feature.toLowerCase();
             Modernizr[featureName] = tests[feature]();
@@ -961,7 +961,7 @@ window.Modernizr = (function( window, document, undefined ) {
     /**
      * addTest allows the user to define their own feature tests
      * the result will be added onto the Modernizr object,
-     * as well as an appropriate className set on the html element
+     * as well as an appropriate Name set on the html element
      *
      * @param feature - String naming the feature
      * @param test - Function returning true if feature is supported, false if not
@@ -981,7 +981,7 @@ window.Modernizr = (function( window, document, undefined ) {
            // we're going to quit if you're trying to overwrite an existing test
            // if we were to allow it, we'd do this:
            //   var re = new RegExp("\\b(no-)?" + feature + "\\b");
-           //   docElement.className = docElement.className.replace( re, '' );
+           //   docElement.Name = docElement.Name.replace( re, '' );
            // but, no rly, stuff 'em.
            return Modernizr;
          }
@@ -989,7 +989,7 @@ window.Modernizr = (function( window, document, undefined ) {
          test = typeof test == 'function' ? test() : test;
 
          if (typeof enableClasses !== "undefined" && enableClasses) {
-           docElement.className += ' ' + (test ? '' : 'no-') + feature;
+           docElement.Name += ' ' + (test ? '' : 'no-') + feature;
          }
          Modernizr[feature] = test;
 
@@ -1395,7 +1395,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     /*>>cssclasses*/
     // Remove "no-js" class from <html> element, if it exists:
-    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
+    docElement.Name = docElement.Name.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
 
                             // Add the new classes to the <html> element.
                             (enableClasses ? ' js ' + classes.join(' ') : '');

@@ -1158,11 +1158,11 @@ $.extend( $.validator, {
 		creditcard: { creditcard: true }
 	},
 
-	addClassRules: function( className, rules ) {
-		if ( className.constructor === String ) {
-			this.classRuleSettings[ className ] = rules;
+	addClassRules: function( Name, rules ) {
+		if ( Name.constructor === String ) {
+			this.classRuleSettings[ Name ] = rules;
 		} else {
-			$.extend( this.classRuleSettings, className );
+			$.extend( this.classRuleSettings, Name );
 		}
 	},
 
