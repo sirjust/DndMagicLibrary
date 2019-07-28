@@ -60,32 +60,13 @@ namespace DndMagicLibrary.Controllers
         public async Task<DndClass> GetClassData(DndClass dndClassParam)
         {
             var url = $"classes/{dndClassParam.Index}";
-            DndClass dndClass = default;
+            DndClass dndClass = dndClassParam;
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(ApiHelper.ApiClient.BaseAddress + url))
             {
                 if (response.IsSuccessStatusCode)
                 {
                     dndClass = await response.Content.ReadAsAsync<DndClass>();
                     return dndClass;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
-            }
-        }
-
-        [HttpGet]
-        public async Task<Spellcasting_Ability> GetSpellcastingData()
-        {
-            string url = "http://www.dnd5eapi.co/api/spellcasting/1";
-            var spellCastingAbility = new Spellcasting_Ability();
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-            {
-                if (response.IsSuccessStatusCode)
-                {
-                    spellCastingAbility = await response.Content.ReadAsAsync<Spellcasting_Ability>();
-                    return spellCastingAbility;
                 }
                 else
                 {

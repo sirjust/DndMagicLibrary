@@ -166,7 +166,7 @@
     <Compile Include="Models\DndClass.cs" />
     <Compile Include="Models\Overview.cs" />
     <Compile Include="Models\Spell.cs" />
-    <Compile Include="Models\SpellcastingObject.cs" />
+    <Compile Include="Models\SpellCasting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

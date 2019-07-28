@@ -12,26 +12,43 @@
 <h1 class="text-center my-4 btn-outline-info">D&D Spellcasting Classes</h1>
 <div class="row">
     <div class="col-md-3">
-        <h2 class="text-center">Bard</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Bard").Select(x => x.Description))</p>
-        <p class="text-center">@Html.ActionLink("See Bard Class", "FindClass", "Class/Bard")</p>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Bard</h5>
+                <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == "Bard").Select(x => x.Description))</p>
+                <button class="text-center btn btn-primary">@Html.ActionLink("See Bard Class", "FindClass", "Class/Bard")</button>
+            </div>
+        </div>
     </div>
     <div class="col-md-3">
-        <h2 class="text-center">Cleric</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Cleric").Select(x => x.Description))</p>
-        <p class="text-center">@Html.ActionLink("See Cleric Class", "FindClass", "Class/Cleric")</p>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Cleric</h5>
+                <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == "Cleric").Select(x => x.Description))</p>
+                <button class="btn btn-primary">@Html.ActionLink("See Cleric Class", "FindClass", "Class/Cleric")</button>
+            </div>
+        </div>
     </div>
     <div class="col-md-3">
-        <h2 class="text-center">Druid</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Druid").Select(x => x.Description))</p>
-        <p class="text-center">@Html.ActionLink("See Druid Class", "FindClass", "Class/Druid")</p>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Druid</h5>
+                <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == "Druid").Select(x => x.Description))</p>
+                <button class="btn btn-primary">@Html.ActionLink("See Druid Class", "FindClass", "Class/Druid")</button>
+            </div>
+        </div>
     </div>
     <div class="col-md-3">
-        <h2 class="text-center">Paladin</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Paladin").Select(x => x.Description))</p>
-        <p class="text-center">@Html.ActionLink("See Paladin Class", "FindClass", "Class/Paladin")</p>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title bg-info">Paladin</h5>
+                <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == "Paladin").Select(x => x.Description))</p>
+                <button class="btn btn-primary">@Html.ActionLink("See Paladin Class", "FindClass", "Class/Paladin")</button>
+            </div>
+        </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-3">
         <h2 class="text-center">Ranger</h2>
