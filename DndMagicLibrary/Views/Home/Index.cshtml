@@ -1,7 +1,7 @@
 ﻿@model DndMagicLibrary.Models.Overview
 @{
     ViewBag.Title = "D&D Magic Library";
-        var firstFour = @Model.Classes.GetRange(0, 4);
+    var firstFour = Model.Classes.GetRange(0, 4);
     var lastFour = Model.Classes.GetRange(3, 4);
 }
 

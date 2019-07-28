@@ -185,6 +185,7 @@
     <Compile Include="Models\Overview.cs" />
     <Compile Include="Models\Spell.cs" />
     <Compile Include="Models\SpellCasting.cs" />
+    <Compile Include="Models\SpellCastingAbility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -15,7 +15,7 @@ namespace DndMagicLibrary.Tests
             DndClass bard = new DndClass { Name = "Bard", Index = 2 };
 
             // act
-            var spellcastingData = await bard.GetSpellcastingData(bard.Index);
+            var spellcastingData = await bard.GetSpellcastingData();
 
             // assert
             Assert.IsNotNull(spellcastingData.Url);
@@ -26,13 +26,13 @@ namespace DndMagicLibrary.Tests
         {
             // Arrange
             DndClass dndClass = new DndClass { Name = "Bard", Index = 1 };
-            string expected = "CHA";
+            string expected = "Bard";
 
             // Act
             dndClass = await dndClass.GetClassData();
 
             // Assert
-            Assert.AreEqual(expected, dndClass.SpellCasting_Ability.Name);
+            Assert.AreEqual(expected, dndClass.SpellCasting.Class);
         }
     }
 }

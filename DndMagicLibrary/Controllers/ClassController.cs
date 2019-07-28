@@ -21,6 +21,7 @@ namespace DndMagicLibrary.Controllers
         {
             var bardParam = new DndClass { Name = "Bard", Index = 2 };
             var bard = await bardParam.GetClassData();
+            bard.SpellCasting.SetSpellcastingAbility();
             return View(bard);
         }
 
