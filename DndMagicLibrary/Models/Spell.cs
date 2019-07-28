@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DndMagicLibrary.Models
 {
-    public class Spell
+    public class Spell : ISpell
     {
         public string Name { get; set; }
         public string Url { get; set; }

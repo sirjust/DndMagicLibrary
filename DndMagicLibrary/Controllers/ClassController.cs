@@ -20,25 +20,29 @@ namespace DndMagicLibrary.Controllers
         public async Task<ActionResult> Bard()
         {
             var bardParam = new DndClass { Name = "Bard", Index = 2 };
-            var bard = await GetClassData(bardParam);
+            var bard = await bardParam.GetClassData();
             return View(bard);
         }
 
         public async Task<ActionResult> Cleric()
         {
             var clericParam = new DndClass { Name = "Cleric", Index = 3 };
-            var cleric = await GetClassData(clericParam);
+            var cleric = await clericParam.GetClassData();
             return View(cleric);
         }
 
-        public ActionResult Druid()
+        public async Task<ActionResult> Druid()
         {
-            return View();
+            var druid = new DndClass { Name = "Druid", Index = 4 };
+            druid = await druid.GetClassData();
+            return View(druid);
         }
 
-        public ActionResult Paladin()
+        public async Task<ActionResult> Paladin()
         {
-            return View();
+            var paladin = new DndClass { Name = "Paladin", Index = 7 };
+            paladin = await paladin.GetClassData();
+            return View(paladin);
         }
 
         public ActionResult Ranger()
@@ -54,25 +58,6 @@ namespace DndMagicLibrary.Controllers
         public ActionResult Warlock()
         {
             return View();
-        }
-
-        [HttpGet]
-        public async Task<DndClass> GetClassData(DndClass dndClassParam)
-        {
-            var url = $"classes/{dndClassParam.Index}";
-            DndClass dndClass = dndClassParam;
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(ApiHelper.ApiClient.BaseAddress + url))
-            {
-                if (response.IsSuccessStatusCode)
-                {
-                    dndClass = await response.Content.ReadAsAsync<DndClass>();
-                    return dndClass;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
-            }
         }
     }
 }

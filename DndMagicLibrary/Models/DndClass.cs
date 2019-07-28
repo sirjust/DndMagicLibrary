@@ -9,14 +9,14 @@ using System.Web.Mvc;
 
 namespace DndMagicLibrary.Models
 {
-    public class DndClass
+    public class DndClass : IDndClass
     {
         public string Name { get; set; }
         public string SpellcastingUrl { get; set; }
         public int Index { get; set; }
         public string Description { get; set; }
         public int Hit_Die { get; set; }
-        // public SpellCasting SpellCasting { get; set; } = new SpellCasting();
+        public SpellCasting SpellCasting { get; set; } = new SpellCasting();
         public Spellcasting_Ability SpellCasting_Ability { get; set; }
 
         [HttpGet]
@@ -49,6 +49,24 @@ namespace DndMagicLibrary.Models
                 {
                     spellCasting = await response.Content.ReadAsAsync<string>();
                     return spellCasting;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        [HttpGet]
+        public async Task<DndClass> GetClassData()
+        {
+            var url = $"classes/{Index}";
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(ApiHelper.ApiClient.BaseAddress + url))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    DndClass dndClass = await response.Content.ReadAsAsync<DndClass>();
+                    return dndClass;
                 }
                 else
                 {

@@ -26,20 +26,5 @@ namespace DndMagicLibrary.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-
-        [TestMethod]
-        public async Task GetClassData_ReturnsCorrectData()
-        {
-            // Arrange
-            ClassController controller = new ClassController();
-            DndClass dndClass = new DndClass { Name = "Bard", Index = 1 };
-            string expected = "CHA";
-
-            // Act
-            dndClass = await controller.GetClassData(dndClass);
-
-            // Assert
-            Assert.AreEqual(expected, "CHA"); //dndClass.SpellCasting.SpellCasting_Ability.Name);
-        }
     }
 }

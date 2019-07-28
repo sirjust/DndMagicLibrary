@@ -1,6 +1,8 @@
 ﻿@model DndMagicLibrary.Models.Overview
 @{
     ViewBag.Title = "D&D Magic Library";
+        var firstFour = @Model.Classes.GetRange(0, 4);
+    var lastFour = Model.Classes.GetRange(3, 4);
 }
 
 <div class="jumbotron">
@@ -11,63 +13,32 @@
 
 <h1 class="text-center my-4 btn-outline-info">D&D Spellcasting Classes</h1>
 <div class="row">
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Bard</h5>
-                <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == "Bard").Select(x => x.Description))</p>
-                <button class="text-center btn btn-primary">@Html.ActionLink("See Bard Class", "FindClass", "Class/Bard")</button>
+    @foreach (var myModel in firstFour)
+    {
+        <div class="col-md-3">
+            <div class="card">
+                <h5 class="card-title text-center text-uppercase bg-info py-3">@myModel.Name</h5>
+                <div class="card-body">
+                    <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == myModel.Name).Select(x => x.Description))</p>
+                    <div class="text-center">
+                        <button class="text-center btn btn-light border-dark">@Html.ActionLink($"See {@myModel.Name} Class", "FindClass", $"Class/{myModel.Name}")</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Cleric</h5>
-                <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == "Cleric").Select(x => x.Description))</p>
-                <button class="btn btn-primary">@Html.ActionLink("See Cleric Class", "FindClass", "Class/Cleric")</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Druid</h5>
-                <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == "Druid").Select(x => x.Description))</p>
-                <button class="btn btn-primary">@Html.ActionLink("See Druid Class", "FindClass", "Class/Druid")</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title bg-info">Paladin</h5>
-                <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == "Paladin").Select(x => x.Description))</p>
-                <button class="btn btn-primary">@Html.ActionLink("See Paladin Class", "FindClass", "Class/Paladin")</button>
-            </div>
-        </div>
-    </div>
+    }
 </div>
-
 <div class="row">
-    <div class="col-md-3">
-        <h2 class="text-center">Ranger</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Ranger").Select(x => x.Description))</p>
-        <p class="text-center">@Html.ActionLink("See Ranger Class", "FindClass", "Class/Ranger")</p>
-    </div>
-    <div class="col-md-3">
-        <h2 class="text-center">Sorcerer</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Sorcerer").Select(x => x.Description))</p>
-        <p class="text-center">@Html.ActionLink("See Sorcerer Class", "FindClass", "Class/Sorcerer")</p>
-    </div>
-    <div class="col-md-3">
-        <h2 class="text-center">Warlock</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Warlock").Select(x => x.Description))</p>
-        <p class="text-center">@Html.ActionLink("See Warlock Class", "FindClass", "Class/Warlock")</p>
-    </div>
-    <div class="col-md-3">
-        <h2 class="text-center">Wizard</h2>
-        <p>@String.Join("", Model.Classes.Where(x => x.Name == "Wizard").Select(x => x.Description))</p>
-        <p class="text-center">@Html.ActionLink("See Wizard Class", "FindClass", "Class/Wizard")</p>
-    </div>
+    @foreach (var myModel in lastFour)
+    {
+        <div class="col-md-3">
+            <div class="card">
+                <h5 class="card-title text-center text-uppercase bg-info py-3">@myModel.Name</h5>
+                <div class="card-body">
+                    <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == myModel.Name).Select(x => x.Description))</p>
+                    <button class="text-center btn btn-light border-dark">@Html.ActionLink($"See {@myModel.Name} Class", "FindClass", $"Class/{myModel.Name}")</button>
+                </div>
+            </div>
+        </div>
+    }
 </div>

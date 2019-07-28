@@ -2,10 +2,10 @@
 <link rel="stylesheet" href="~/Scripts/bootstrap.min.js" />
 
 @{
-    ViewBag.Title = "Bard";
+    ViewBag.Title = Model.Name;
 }
 
-<h2>Bard</h2>
+<h2>@Model.Name.ToUpper()</h2>
 
 <p>This is a page about the @Model.Name class.</p>
 <p>@Model.Description</p>
