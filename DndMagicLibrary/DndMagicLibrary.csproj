@@ -265,6 +265,7 @@
     <Content Include="Views\Class\Bard.cshtml" />
     <Content Include="Views\Class\Cleric.cshtml" />
     <Content Include="Views\Class\Paladin.cshtml" />
+    <Content Include="Views\Class\Druid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
