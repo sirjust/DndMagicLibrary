@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == myModel.Name).Select(x => x.Description))</p>
                     <div class="text-center">
-                        <button class="text-center btn btn-light border-dark">@Html.ActionLink($"See {@myModel.Name} Class", "FindClass", $"Class/{myModel.Name}")</button>
+                        <button class="text-center btn btn-light border-dark">@Html.ActionLink($"See {@myModel.Name} Class", "GetDndClass", @myModel)</button>
                     </div>
                 </div>
             </div>

@@ -7,9 +7,11 @@ using System.Web.Mvc;
 using System.Net.Http;
 using DndMagicLibrary.Helpers;
 using System.Threading.Tasks;
+using DndMagicLibrary.Data;
 
 namespace DndMagicLibrary.Controllers
 {
+    [RoutePrefix("Class")]
     public class ClassController : Controller
     {
         public ActionResult Index()
@@ -17,34 +19,40 @@ namespace DndMagicLibrary.Controllers
             return View();
         }
 
-        public async Task<ActionResult> Bard()
+        [Route("/{model.Name}")]
+        public async Task<ActionResult> GetDndClass(DndClass model)
         {
-            var bardParam = new DndClass { Name = "Bard", Index = 2 };
-            var bard = await bardParam.GetClassData();
-            // bard.SpellCasting.SetSpellcastingAbility();
-            return View(bard);
+            var newModel = await model.GetClassData(model);
+            return View(newModel);
         }
 
-        public async Task<ActionResult> Cleric()
-        {
-            var clericParam = new DndClass { Name = "Cleric", Index = 3 };
-            var cleric = await clericParam.GetClassData();
-            return View(cleric);
-        }
+        //public async Task<ActionResult> Bard()
+        //{
+        //    var bardParam = new DndClass("Bard", Descriptions.DescriptionsDictionary["Bard"], 2, 1);
+        //    var bard = await bardParam.GetClassData(bardParam);
+        //    return View(bard);
+        //}
 
-        public async Task<ActionResult> Druid()
-        {
-            var druid = new DndClass { Name = "Druid", Index = 4 };
-            druid = await druid.GetClassData();
-            return View(druid);
-        }
+        //public async Task<ActionResult> Cleric()
+        //{
+        //    var clericParam = new DndClass("Cleric", Descriptions.DescriptionsDictionary["Cleric"], 3, 2);
+        //    var cleric = await clericParam.GetClassData(clericParam);
+        //    return View(cleric);
+        //}
 
-        public async Task<ActionResult> Paladin()
-        {
-            var paladin = new DndClass { Name = "Paladin", Index = 7 };
-            paladin = await paladin.GetClassData();
-            return View(paladin);
-        }
+        //public async Task<ActionResult> Druid()
+        //{
+        //    var druidParam = new DndClass("Druid", Descriptions.DescriptionsDictionary["Druid"], 4, 3);
+        //    var druid = await druidParam.GetClassData(druidParam);
+        //    return View(druid);
+        //}
+
+        //public async Task<ActionResult> Paladin()
+        //{
+            //var paladin = new DndClass { Name = "Paladin", Index = 7 };
+            //paladin = await paladin.GetClassData();
+            //return View(paladin);
+        //}
 
         public ActionResult Ranger()
         {
