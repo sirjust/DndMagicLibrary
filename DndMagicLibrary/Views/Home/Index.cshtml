@@ -1,8 +1,8 @@
-﻿@model DndMagicLibrary.Models.Overview
+﻿@model List<DndMagicLibrary.Models.DndClass>
 @{
     ViewBag.Title = "D&D Magic Library";
-    var firstFour = Model.Classes.GetRange(0, 4);
-    var lastFour = Model.Classes.GetRange(4, 4);
+    var firstFour = Model.GetRange(0, 4);
+    var lastFour = Model.GetRange(4, 4);
 }
 
 <div class="jumbotron">
@@ -19,7 +19,7 @@
             <div class="card">
                 <h5 class="card-title text-center text-uppercase bg-info py-3">@myModel.Name</h5>
                 <div class="card-body">
-                    <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == myModel.Name).Select(x => x.Description))</p>
+                    <p class="card-text">@String.Join("", Model.Where(x => x.Name == myModel.Name).Select(x => x.Description))</p>
                     <div class="text-center">
                         <button class="text-center btn btn-light border-dark">@Html.ActionLink($"See {@myModel.Name} Class", "FindClass", $"Class/{myModel.Name}")</button>
                     </div>
@@ -35,7 +35,7 @@
             <div class="card">
                 <h5 class="card-title text-center text-uppercase bg-info py-3">@myModel.Name</h5>
                 <div class="card-body">
-                    <p class="card-text">@String.Join("", Model.Classes.Where(x => x.Name == myModel.Name).Select(x => x.Description))</p>
+                    <p class="card-text">@String.Join("", Model.Where(x => x.Name == myModel.Name).Select(x => x.Description))</p>
                     <button class="text-center btn btn-light border-dark">@Html.ActionLink($"See {@myModel.Name} Class", "FindClass", $"Class/{myModel.Name}")</button>
                 </div>
             </div>

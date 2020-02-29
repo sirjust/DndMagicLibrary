@@ -11,9 +11,7 @@ namespace DndMagicLibrary.Controllers
     {
         public ActionResult Index()
         {
-            Overview overview = new Overview();
-            overview.Classes = overview.GetDndClasses();
-            return View(overview);
+            return View(Helpers.AllClasses.DndClasses);
         }
 
         public ViewResult FindClass()
