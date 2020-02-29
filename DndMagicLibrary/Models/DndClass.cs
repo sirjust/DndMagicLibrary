@@ -13,16 +13,26 @@ namespace DndMagicLibrary.Models
     public class DndClass : IDndClass
     {
         public string Name { get; set; }
-        public int Index { get; set; }
+        public int GeneralIndex { get; set; }
+        public int SpellcastingIndex { get; set; }
         public string Description { get; set; }
         public int Hit_Die { get; set; }
         [JsonProperty("spellcasting")]
         public SpellCasting SpellCasting { get; set; }
+        public List<List<Spell>> Spells { get; set; }
+
+        public DndClass(string name, string description, int generalIndex, int spellcastingIndex)
+        {
+            Name = name;
+            Description = description;
+            GeneralIndex = generalIndex;
+            SpellcastingIndex = spellcastingIndex;
+        }
 
         [HttpGet]
         public async Task<SpellCasting> GetSpellcastingData()
         {
-            string url = $"http://www.dnd5eapi.co/api/spellcasting/{Index}";
+            string url = $"http://www.dnd5eapi.co/api/spellcasting/{SpellcastingIndex}";
             SpellCasting spellCasting = new SpellCasting();
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
             {
@@ -40,15 +50,15 @@ namespace DndMagicLibrary.Models
         }
 
         [HttpGet]
-        public async Task<DndClass> GetClassData()
+        public async Task<DndClass> GetClassData(DndClass myClass)
         {
-            var url = $"classes/{Index}";
+            var url = $"classes/{GeneralIndex}";
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(ApiHelper.ApiClient.BaseAddress + url))
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    DndClass dndClass = await response.Content.ReadAsAsync<DndClass>();
-                    return dndClass;
+                    myClass = await response.Content.ReadAsAsync<DndClass>();
+                    return myClass;
                 }
                 else
                 {

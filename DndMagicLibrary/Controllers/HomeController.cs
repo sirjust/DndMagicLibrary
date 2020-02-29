@@ -14,9 +14,9 @@ namespace DndMagicLibrary.Controllers
             return View(Helpers.AllClasses.DndClasses);
         }
 
-        public ViewResult FindClass()
-        {
-            return View();
-        }
+        //public ViewResult FindClass()
+        //{
+        //    return View();
+        //}
     }
 }
