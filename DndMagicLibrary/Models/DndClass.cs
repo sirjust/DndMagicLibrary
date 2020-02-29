@@ -21,6 +21,15 @@ namespace DndMagicLibrary.Models
         public SpellCasting SpellCasting { get; set; }
         public List<List<Spell>> Spells { get; set; }
 
+        public DndClass() { }
+        public DndClass(string name)
+        {
+            Name = name;
+            Description = AllClasses.DndClasses.Where(x => x.Name == name).FirstOrDefault().Description;
+            GeneralIndex = AllClasses.DndClasses.Where(x => x.Name == name).FirstOrDefault().GeneralIndex;
+            SpellcastingIndex = AllClasses.DndClasses.Where(x => x.Name == name).FirstOrDefault().SpellcastingIndex;
+        }
+
         public DndClass(string name, string description, int generalIndex, int spellcastingIndex)
         {
             Name = name;
@@ -52,12 +61,15 @@ namespace DndMagicLibrary.Models
         [HttpGet]
         public async Task<DndClass> GetClassData(DndClass myClass)
         {
-            var url = $"classes/{GeneralIndex}";
+            var url = $"classes/{myClass.Name.ToLower()}";
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(ApiHelper.ApiClient.BaseAddress + url))
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    myClass = await response.Content.ReadAsAsync<DndClass>();
+                    var data = await response.Content.ReadAsAsync<DndClass>();
+                    // myClass = await response.Content.ReadAsAsync<DndClass>();
+                    myClass.Hit_Die = data.Hit_Die;
+                    myClass.SpellCasting = data.SpellCasting;
                     return myClass;
                 }
                 else
