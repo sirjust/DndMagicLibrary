@@ -12,15 +12,16 @@
 <p>The @Model.Name's Hit Die is @Model.Hit_Die</p>
 
 <h2 class="text-center">Click on a level for spell details</h2>
-<div class="btn btn-default">@Html.ActionLink("1", "Spell", "1")</div>
-<div class="btn btn-default">@Html.ActionLink("2", "Spell", "2")</div>
-<div class="btn btn-default">@Html.ActionLink("3", "Spell", "3")</div>
-<div class="btn btn-default">@Html.ActionLink("4", "Spell", "4")</div>
-<div class="btn btn-default">@Html.ActionLink("5", "Spell", "5")</div>
-<div class="btn btn-default">@Html.ActionLink("6", "Spell", "6")</div>
-<div class="btn btn-default">@Html.ActionLink("7", "Spell", "7")</div>
-<div class="btn btn-default">@Html.ActionLink("8", "Spell", "8")</div>
-<div class="btn btn-default">@Html.ActionLink("9", "Spell", "9")</div>
+<div class="btn btn-info my-2"><a>@Html.ActionLink("Cantrips", "Spell", "Spell", new { id = 0 }, new { Style = "color:White" })</a></div>
+<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 1", "Spell", "1", new { Style = "color:White" })</a></div>
+<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 2", "Spell", "2", new { Style = "color:White" })</a></div>
+<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 3", "Spell", "3", new { Style = "color:White" })</a></div>
+<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 4", "Spell", "4", new { Style = "color:White" })</a></div>
+<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 5", "Spell", "5", new { Style = "color:White" })</a></div>
+<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 6", "Spell", "6", new { Style = "color:White" })</a></div>
+<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 7", "Spell", "7", new { Style = "color:White" })</a></div>
+<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 8", "Spell", "8", new { Style = "color:White" })</a></div>
+<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 9", "Spell", "9", new { Style = "color:White" })</a></div>
 
 
 <h2 class="text-center">Click below for more information about the @Model.Name's spellcasting</h2>
