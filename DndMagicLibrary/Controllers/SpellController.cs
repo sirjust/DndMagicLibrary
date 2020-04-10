@@ -17,7 +17,7 @@ namespace DndMagicLibrary.Controllers
             var model = new SpellViewModel
             {
                 ClassName = "Bard",
-                Spells = Data.SpellsKnown.GetSpells("Bard")
+                // Spells = Data.SpellsKnown.GetSpells("Bard")
             };
             return View(model);
         }

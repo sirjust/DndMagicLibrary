@@ -1,13 +1,8 @@
-﻿using DndMagicLibrary.Models;
-using System;
+﻿using DndMagicLibrary.Data;
+using DndMagicLibrary.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Net.Http;
-using DndMagicLibrary.Helpers;
 using System.Threading.Tasks;
-using DndMagicLibrary.Data;
+using System.Web.Mvc;
 
 namespace DndMagicLibrary.Controllers
 {
@@ -24,7 +19,18 @@ namespace DndMagicLibrary.Controllers
         {
             var dndClass = new DndClass(id);
             var newModel = await dndClass.GetClassData(dndClass);
+            newModel.Spells = GetSpells(dndClass.Name);
             return View(newModel);
+        }
+
+        private Dictionary<int, IEnumerable<string>> GetSpells(string dndClass)
+        {
+            var spellList = new ClassSpellLists();
+            switch (dndClass.ToLower())
+            {
+                case "bard": return spellList.GetBardSpells();
+                default: return null;
+            }
         }
     }
 }

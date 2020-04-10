@@ -19,7 +19,7 @@ namespace DndMagicLibrary.Models
         public int Hit_Die { get; set; }
         [JsonProperty("spellcasting")]
         public SpellCasting SpellCasting { get; set; }
-        public List<List<Spell>> Spells { get; set; }
+        public Dictionary<int, IEnumerable<string>> Spells { get; set; }
 
         public DndClass() { }
         public DndClass(string name)

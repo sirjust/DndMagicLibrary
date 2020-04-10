@@ -11,7 +11,7 @@ namespace DndMagicLibrary.Models
         string Description { get; set; }
         int Hit_Die { get; set; }
         SpellCasting SpellCasting { get; set; }
-        List<List<Spell>> Spells { get; set; }
+        Dictionary<int, IEnumerable<string>> Spells { get; set; }
 
         Task<DndClass> GetClassData(DndClass dndClass);
         Task<SpellCasting> GetSpellcastingData();
