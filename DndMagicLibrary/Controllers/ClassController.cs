@@ -19,16 +19,17 @@ namespace DndMagicLibrary.Controllers
         {
             var dndClass = new DndClass(id);
             var newModel = await dndClass.GetClassData(dndClass);
-            newModel.Spells = GetSpells(dndClass.Name);
+            newModel.Spells = GetSpellNames(dndClass.Name);
             return View(newModel);
         }
 
-        private Dictionary<int, IEnumerable<string>> GetSpells(string dndClass)
+        private Dictionary<int, IEnumerable<string>> GetSpellNames(string dndClass)
         {
             var spellList = new ClassSpellLists();
             switch (dndClass.ToLower())
             {
                 case "bard": return spellList.GetBardSpells();
+                case "cleric": return spellList.GetClericSpells();
                 default: return null;
             }
         }

@@ -1,5 +1,5 @@
 ﻿@model DndMagicLibrary.Models.DndClass
-<link rel="stylesheet" href="~/Scripts/bootstrap.min.js" />
+<script src="~/Scripts/bootstrap.bundle.min.js"></script>
 
 @{
     ViewBag.Title = Model.Name;
@@ -11,41 +11,117 @@
 <p>@Model.Description</p>
 <p>The @Model.Name's Hit Die is @Model.Hit_Die</p>
 
-<h2 class="text-center">Click on a level for spell details</h2>
-<div class="btn btn-info my-2"><a>@Html.ActionLink("Cantrips", "Spell", "Spell", new { id = 0 }, new { Style = "color:White" })</a></div>
-<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 1", "Spell", "1", new { Style = "color:White" })</a></div>
-<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 2", "Spell", "2", new { Style = "color:White" })</a></div>
-<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 3", "Spell", "3", new { Style = "color:White" })</a></div>
-<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 4", "Spell", "4", new { Style = "color:White" })</a></div>
-<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 5", "Spell", "5", new { Style = "color:White" })</a></div>
-<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 6", "Spell", "6", new { Style = "color:White" })</a></div>
-<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 7", "Spell", "7", new { Style = "color:White" })</a></div>
-<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 8", "Spell", "8", new { Style = "color:White" })</a></div>
-<div class="btn btn-info my-2"><a>@Html.ActionLink("Level 9", "Spell", "9", new { Style = "color:White" })</a></div>
-
-
-<h2 class="text-center">Click below for more information about the @Model.Name's spellcasting</h2>
-@Html.ActionLink("Spellcasting", "GetSpellcastingData")
-
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="pills-0-tab" data-toggle="pill" href="#pills-0" role="tab" aria-controls="pills-0" aria-selected="true">Cantrips</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="false">Level 1</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="false">Level 2</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-selected="false">Level 3</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-4-tab" data-toggle="pill" href="#pills-4" role="tab" aria-controls="pills-4" aria-selected="false">Level 4</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-5-tab" data-toggle="pill" href="#pills-5" role="tab" aria-controls="pills-5" aria-selected="false">Level 5</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-6-tab" data-toggle="pill" href="#pills-6" role="tab" aria-controls="pills-6" aria-selected="false">Level 6</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-7-tab" data-toggle="pill" href="#pills-7" role="tab" aria-controls="pills-7" aria-selected="false">Level 7</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-8-tab" data-toggle="pill" href="#pills-8" role="tab" aria-controls="pills-8" aria-selected="false">Level 8</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-9-tab" data-toggle="pill" href="#pills-9" role="tab" aria-controls="pills-9" aria-selected="false">Level 9</a>
+    </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-0" role="tabpanel" aria-labelledby="pills-0-tab">
+        <ul>
+            @foreach (var spell in Model.Spells[0])
+            {
+                <li>@spell</li>
+            }
+        </ul>    
+    </div>
+    <div class="tab-pane fade" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+        <ul>
+            @foreach (var spell in Model.Spells[1])
+            {
+                <li>@spell</li>
+            }
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
+        <ul>
+            @foreach (var spell in Model.Spells[2])
+            {
+                <li>@spell</li>
+            }
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
+        <ul>
+            @foreach (var spell in Model.Spells[3])
+            {
+                <li>@spell</li>
+            }
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">
+        <ul>
+            @foreach (var spell in Model.Spells[4])
+            {
+                <li>@spell</li>
+            }
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab">
+        <ul>
+            @foreach (var spell in Model.Spells[5])
+            {
+                <li>@spell</li>
+            }
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="pills-6" role="tabpanel" aria-labelledby="pills-6-tab">
+        <ul>
+            @foreach (var spell in Model.Spells[6])
+            {
+                <li>@spell</li>
+            }
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="pills-7" role="tabpanel" aria-labelledby="pills-7-tab">
+        <ul>
+            @foreach (var spell in Model.Spells[7])
+            {
+                <li>@spell</li>
+            }
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="pills-8" role="tabpanel" aria-labelledby="pills-8-tab">
+        <ul>
+            @foreach (var spell in Model.Spells[8])
+            {
+                <li>@spell</li>
+            }
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="pills-9" role="tabpanel" aria-labelledby="pills-9-tab">
+        <ul>
+            @foreach (var spell in Model.Spells[9])
+            {
+                <li>@spell</li>
+            }
+        </ul>
     </div>
 </div>
