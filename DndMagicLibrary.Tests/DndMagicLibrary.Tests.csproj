@@ -120,6 +120,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HomeControllerTest.cs" />
     <Compile Include="DndClassTests.cs" />
+    <Compile Include="SpellTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

@@ -1,8 +1,5 @@
-﻿using DndMagicLibrary.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using DndMagicLibrary.Models;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace DndMagicLibrary.Controllers
@@ -11,15 +8,11 @@ namespace DndMagicLibrary.Controllers
     {
         // GET: Spell
         [Route("/{id}")]
-        public ActionResult Spell(int id)
+        public async Task<ActionResult> Spell(string id)
         {
-            int level = id;
-            var model = new SpellViewModel
-            {
-                ClassName = "Bard",
-                // Spells = Data.SpellsKnown.GetSpells("Bard")
-            };
-            return View(model);
+            var spell = new Spell { Name = id };
+            var apiName = spell.ConvertSpellName(id);
+            return View(await spell.GetSpellData(apiName));
         }
     }
 }

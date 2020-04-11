@@ -1,13 +1,20 @@
-﻿namespace DndMagicLibrary.Models
+﻿using System.Collections.Generic;
+
+namespace DndMagicLibrary.Models
 {
     public interface ISpell
     {
-        string Description { get; set; }
-        string HigherLevelInfo { get; set; }
-        int Level { get; set; }
         string Name { get; set; }
-        string Range { get; set; }
-        SpellSchool SpellSchool { get; set; }
         string Url { get; set; }
+        int Level { get; set; }
+        IEnumerable<string> Description { get; set; }
+        IEnumerable<string> Components { get; set; }
+        string Range { get; set; }
+        string Material { get; set; }
+        bool Ritual { get; set; }
+        string Duration { get; set; }
+        bool Concentration { get; set; }
+        string CastingTime { get; set; }
+        object School { get; set; }
     }
 }

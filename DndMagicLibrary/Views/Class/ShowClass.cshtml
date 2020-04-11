@@ -48,7 +48,7 @@
         <ul>
             @foreach (var spell in Model.Spells[0])
             {
-                <li>@spell</li>
+            <li>@Html.ActionLink(spell, "Spell", "Spell", new { id = spell }, null)</li>
             }
         </ul>    
     </div>

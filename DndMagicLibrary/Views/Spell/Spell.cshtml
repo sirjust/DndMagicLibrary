@@ -1,27 +1,20 @@
-﻿@model DndMagicLibrary.ViewModels.SpellViewModel
+﻿@model DndMagicLibrary.Models.Spell
 @{
     ViewBag.Title = "D&D Magic Library";
 }
 
-<h1 class="text-center my-4 btn-outline-info">Spells for @Model.ClassName</h1>
-<div class="row">
-    @for(int i = 0; i < @Model.Spells.Count; i++)
+<h1 class="text-center my-4 btn-outline-info">Behod the @Model.Name spell!</h1>
+<div>
+    <div>@Model.Name</div>
+    @foreach (var description in @Model.Description)
     {
-        <div class="col-md-3">
-            <div class="card">
-                <h5 class="card-title text-center text-uppercase bg-info py-3">Spells at level @i</h5>
-                <div class="card-body">
-                    @foreach(var spell in @Model.Spells[i])
-                    {
-                        <p>@spell.Name</p>
-                    }
-
-                    @*<p class="card-text">@String.Join("", Model.Where(x => x.Name == myModel.Name).Select(x => x.Description))</p>
-                    <div class="text-center">
-                        <button class="text-center btn btn-light border-dark">@Html.ActionLink($"See {@myModel.Name} Class", "ShowClass", "Class", new { id = @myModel.Name }, null)</button>
-                    </div>*@
-                </div>
-            </div>
-        </div>
+        <div>@description</div>
     }
+    <div>@Model.Range</div>
+    <div>
+        @foreach (var component in Model.Components)
+        {
+            <span>@component</span>
+        }
+    </div>
 </div>
