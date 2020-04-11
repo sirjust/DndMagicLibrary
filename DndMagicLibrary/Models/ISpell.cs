@@ -15,6 +15,6 @@ namespace DndMagicLibrary.Models
         string Duration { get; set; }
         bool Concentration { get; set; }
         string CastingTime { get; set; }
-        object School { get; set; }
+        School School { get; set; }
     }
 }

@@ -3,18 +3,22 @@
     ViewBag.Title = "D&D Magic Library";
 }
 
-<h1 class="text-center my-4 btn-outline-info">Behod the @Model.Name spell!</h1>
+<h1 class="text-center my-4 btn-outline-info">Behold the @Model.Name spell!</h1>
 <div>
-    <div>@Model.Name</div>
-    @foreach (var description in @Model.Description)
-    {
-        <div>@description</div>
-    }
-    <div>@Model.Range</div>
-    <div>
+    <div>Name: @Model.Name</div>
+    <div>Description:
+        @foreach (var description in @Model.Description)
+        {
+            <div>@description</div>
+        }
+    </div>
+    <div>Range: @Model.Range</div>
+    <div>Components: 
         @foreach (var component in Model.Components)
         {
             <span>@component</span>
         }
     </div>
+    <div>Casting Tme: @Model.CastingTime</div>
+    <div>School: @Model.School.Name</div>
 </div>

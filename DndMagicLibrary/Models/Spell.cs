@@ -23,7 +23,7 @@ namespace DndMagicLibrary.Models
         public bool Concentration { get; set; }
         [JsonProperty("casting_time")]
         public string CastingTime { get; set; }
-        public object School { get; set; }
+        public School School { get; set; }
 
         [HttpGet]
         public async Task<Spell> GetSpellData(string spell)

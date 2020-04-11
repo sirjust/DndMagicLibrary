@@ -186,6 +186,7 @@
     <Compile Include="Models\IDndClass.cs" />
     <Compile Include="Models\ISpell.cs" />
     <Compile Include="Helpers\AllClasses.cs" />
+    <Compile Include="Models\School.cs" />
     <Compile Include="Models\Spell.cs" />
     <Compile Include="Models\SpellCasting.cs" />
     <Compile Include="Models\SpellCastingAbility.cs" />
