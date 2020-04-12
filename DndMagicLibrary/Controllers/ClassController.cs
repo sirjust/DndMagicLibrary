@@ -30,6 +30,12 @@ namespace DndMagicLibrary.Controllers
             {
                 case "bard": return spellList.GetBardSpells();
                 case "cleric": return spellList.GetClericSpells();
+                case "druid": return spellList.GetDruidSpells();
+                case "paladin": return spellList.GetPaladinSpells();
+                case "ranger": return spellList.GetRangerSpells();
+                case "sorcerer": return spellList.GetSorcererSpells();
+                case "warlock": return spellList.GetWarlockSpells();
+                case "wizard": return spellList.GetWizardSpells();
                 default: return null;
             }
         }
