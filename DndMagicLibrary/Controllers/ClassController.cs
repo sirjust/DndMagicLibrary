@@ -37,6 +37,7 @@ namespace DndMagicLibrary.Controllers
                 case "warlock": return spellList.GetWarlockSpells();
                 case "wizard": return spellList.GetWizardSpells();
                 default: return null;
+
             }
         }
     }
