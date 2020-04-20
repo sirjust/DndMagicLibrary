@@ -12,116 +12,40 @@
 <p>The @Model.Name's Hit Die is @Model.Hit_Die</p>
 
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="pills-0-tab" data-toggle="pill" href="#pills-0" role="tab" aria-controls="pills-0" aria-selected="true">Cantrips</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="false">Level 1</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="false">Level 2</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-selected="false">Level 3</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-4-tab" data-toggle="pill" href="#pills-4" role="tab" aria-controls="pills-4" aria-selected="false">Level 4</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-5-tab" data-toggle="pill" href="#pills-5" role="tab" aria-controls="pills-5" aria-selected="false">Level 5</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-6-tab" data-toggle="pill" href="#pills-6" role="tab" aria-controls="pills-6" aria-selected="false">Level 6</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-7-tab" data-toggle="pill" href="#pills-7" role="tab" aria-controls="pills-7" aria-selected="false">Level 7</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-8-tab" data-toggle="pill" href="#pills-8" role="tab" aria-controls="pills-8" aria-selected="false">Level 8</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-9-tab" data-toggle="pill" href="#pills-9" role="tab" aria-controls="pills-9" aria-selected="false">Level 9</a>
-    </li>
+    @if (Model.Spells.ContainsKey(0))
+    {
+        <li class="nav-item">
+            <a class="nav-link active" id="pills-0-tab" data-toggle="pill" href="#pills-0" role="tab" aria-controls="pills-0" aria-selected="true">Cantrips</a>
+        </li>
+    }
+    @for (var i = 1; i < Model.Spells.Count; i++)
+    {
+        <li class="nav-item">
+            <a class="nav-link" id="pills-@i-tab" data-toggle="pill" href="#pills-@i" role="tab" aria-controls="pills-@i" aria-selected="true">Level @i</a>
+        </li>
+    }
 </ul>
 <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-0" role="tabpanel" aria-labelledby="pills-0-tab">
-        <ul>
-            @foreach (var spell in Model.Spells[0])
-            {
-            <li>@Html.ActionLink(spell, "Spell", "Spell", new { id = spell }, null)</li>
-            }
-        </ul>    
-    </div>
-    <div class="tab-pane fade" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
-        <ul>
-            @foreach (var spell in Model.Spells[1])
-            {
-                <li>@spell</li>
-            }
-        </ul>
-    </div>
-    <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
-        <ul>
-            @foreach (var spell in Model.Spells[2])
-            {
-                <li>@spell</li>
-            }
-        </ul>
-    </div>
-    <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
-        <ul>
-            @foreach (var spell in Model.Spells[3])
-            {
-                <li>@spell</li>
-            }
-        </ul>
-    </div>
-    <div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">
-        <ul>
-            @foreach (var spell in Model.Spells[4])
-            {
-                <li>@spell</li>
-            }
-        </ul>
-    </div>
-    <div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab">
-        <ul>
-            @foreach (var spell in Model.Spells[5])
-            {
-                <li>@spell</li>
-            }
-        </ul>
-    </div>
-    <div class="tab-pane fade" id="pills-6" role="tabpanel" aria-labelledby="pills-6-tab">
-        <ul>
-            @foreach (var spell in Model.Spells[6])
-            {
-                <li>@spell</li>
-            }
-        </ul>
-    </div>
-    <div class="tab-pane fade" id="pills-7" role="tabpanel" aria-labelledby="pills-7-tab">
-        <ul>
-            @foreach (var spell in Model.Spells[7])
-            {
-                <li>@spell</li>
-            }
-        </ul>
-    </div>
-    <div class="tab-pane fade" id="pills-8" role="tabpanel" aria-labelledby="pills-8-tab">
-        <ul>
-            @foreach (var spell in Model.Spells[8])
-            {
-                <li>@spell</li>
-            }
-        </ul>
-    </div>
-    <div class="tab-pane fade" id="pills-9" role="tabpanel" aria-labelledby="pills-9-tab">
-        <ul>
-            @foreach (var spell in Model.Spells[9])
-            {
-                <li>@spell</li>
-            }
-        </ul>
-    </div>
+    @if (Model.Spells.ContainsKey(0))
+    {
+        <div class="tab-pane fade show active" id="pills-0" role="tabpanel" aria-labelledby="pills-0-tab">
+            <ul>
+                @foreach (var spell in Model.Spells[0])
+                {
+                    <li>@Html.ActionLink(spell, "Spell", "Spell", new { id = spell }, null)</li>
+                }
+            </ul>
+        </div>
+    }
+    @for (var i = 1; i < Model.Spells.Count; i++)
+    {
+        <div class="tab-pane fade" id="pills-@i" role="tabpanel" aria-labelledby="pills-@i-tab">
+            <ul>
+                @foreach (var spell in Model.Spells[i])
+                {
+                    <li>@Html.ActionLink(spell, "Spell", "Spell", new { id = spell }, null)</li>
+                }
+            </ul>
+        </div>
+    }
 </div>
