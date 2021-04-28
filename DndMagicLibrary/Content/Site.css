@@ -3,6 +3,11 @@
     /*background-image: url("Images/parchment_scroll_background.jpg");
     background-size: cover;
     background-repeat: no-repeat;*/
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: linear-gradient(black, black, red);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -29,4 +34,15 @@ textarea {
     background-image: url("Images/parchment_scroll_background.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+
+.tangerine {
+    font-family: 'Tangerine', cursive;
+    font-size: xx-large;
+}
+
+@media (max-width: 768px) {
+    .tangerine {
+        font-size: x-large;
+    }
 }

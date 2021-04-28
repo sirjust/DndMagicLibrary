@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -55,7 +56,14 @@ namespace DndMagicLibrary.Models
         public string ConvertSpellName(string name)
         {
             var splitUpName = name.ToLower().Split(' ');
-            return string.Join("-", splitUpName);
+            var validatedName = RemoveNames(splitUpName);
+            return string.Join("-", validatedName);
+        }
+
+        public IEnumerable<string> RemoveNames(string[] splitUpName)
+        {
+            // We need to remove names like Mordekainen's and Otto's
+            return splitUpName.Where(x => !x.Contains("'s"));
         }
     }
 }
