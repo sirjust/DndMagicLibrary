@@ -4,21 +4,27 @@
 }
 
 <h1 class="text-center my-4 btn-outline-info">Behold the @Model.Name spell!</h1>
-<div>
-    <div>Name: @Model.Name</div>
-    <div>Description:
-        @foreach (var description in @Model.Description)
-        {
-            <div>@description</div>
-        }
+<div class="parchment">
+    <div class="container mx-4">
+        <div style="padding: 80px">
+            <div><strong>Name:</strong> @Model.Name</div>
+            <div>
+                <strong>Description:</strong>
+                @foreach (var description in @Model.Description)
+                {
+                    <div>- @description</div>
+                }
+            </div>
+            <div><strong>Range:</strong> @Model.Range</div>
+            <div>
+                <strong>Components:</strong>
+                @foreach (var component in Model.Components)
+                {
+                    <span>@component</span>
+                }
+            </div>
+            <div><strong>Casting Time:</strong> @Model.CastingTime</div>
+            <div><strong>School:</strong> @Model.School.Name</div>
+        </div>
     </div>
-    <div>Range: @Model.Range</div>
-    <div>Components: 
-        @foreach (var component in Model.Components)
-        {
-            <span>@component</span>
-        }
-    </div>
-    <div>Casting Tme: @Model.CastingTime</div>
-    <div>School: @Model.School.Name</div>
 </div>
