@@ -3,7 +3,7 @@
     ViewBag.Title = "D&D Magic Library";
 }
 
-<div class="jumbotron">
+<div class="jumbotron my-2">
     <h1>D&D Magic Library</h1>
     <p class="lead">This application will display D&D spells by class and level.</p>
     <p>It uses the <a href="http://www.dnd5eapi.co/" class="btn btn-primary btn-lg">D&D API</a></p>
@@ -13,7 +13,7 @@
 <div class="row">
     @foreach (var myModel in Model)
     {
-        <div class="col-md-3">
+        <div class="col-md-3 py-2">
             <div class="card">
                 <h5 class="card-title text-center text-uppercase bg-info py-3">@myModel.Name</h5>
                 <div class="card-body">

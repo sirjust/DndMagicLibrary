@@ -1,13 +1,10 @@
 ﻿body {
     padding-bottom: 20px;
-    /*background-image: url("Images/parchment_scroll_background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;*/
     min-height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-image: linear-gradient(black, black, red);
+    background-image: linear-gradient(black, black, black, red);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -31,7 +28,7 @@ textarea {
 }
 
 .parchment {
-    background-image: url("Images/parchment_scroll_background.jpg");
+    background-image: url("Images/parchment_scroll_background.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -39,6 +36,10 @@ textarea {
 .tangerine {
     font-family: 'Tangerine', cursive;
     font-size: xx-large;
+}
+
+.medieval-sharp {
+    font-family: 'MedievalSharp', cursive;
 }
 
 @media (max-width: 768px) {
