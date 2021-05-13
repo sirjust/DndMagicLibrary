@@ -1,22 +1,21 @@
-﻿using DndMagicLibrary.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using DndMagicLibrary.Data;
+using DndMagicLibrary.Data.Api;
 using System.Web.Mvc;
 
 namespace DndMagicLibrary.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        AllClasses _allClasses;
+
+        public HomeController(IApiHelper helper)
         {
-            return View(Helpers.AllClasses.DndClasses);
+            _allClasses = new AllClasses(helper);
         }
 
-        //public ViewResult FindClass()
-        //{
-        //    return View();
-        //}
+        public ActionResult Index()
+        {
+            return View(_allClasses.GetDndClasses());
+        }
     }
 }

@@ -3,14 +3,14 @@
 
 namespace DndMagicLibrary.App_Start
 {
-    using System;
-    using System.Web;
-
+    using DndMagicLibrary.Helpers;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
+    using System;
+    using System.Net.Http;
+    using System.Web;
 
     public static class NinjectWebCommon 
     {
@@ -61,6 +61,8 @@ namespace DndMagicLibrary.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-        }        
+            kernel.Bind<HttpClient>().To<HttpClient>();
+            kernel.Bind<IApiHelper>().To<ApiHelper>();
+        }
     }
 }

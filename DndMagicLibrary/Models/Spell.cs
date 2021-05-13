@@ -1,4 +1,4 @@
-﻿using DndMagicLibrary.Helpers;
+﻿using DndMagicLibrary.Data.Api;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -27,10 +27,10 @@ namespace DndMagicLibrary.Models
         public School School { get; set; }
 
         [HttpGet]
-        public async Task<Spell> GetSpellData(string spell)
+        public async Task<Spell> GetSpellData(string spell, IApiHelper helper)
         {
             var url = $"spells/{spell}";
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(ApiHelper.ApiClient.BaseAddress + url))
+            using (HttpResponseMessage response = await helper.ApiClient.GetAsync(helper.ApiClient.BaseAddress + url))
             {
                 if (response.IsSuccessStatusCode)
                 {

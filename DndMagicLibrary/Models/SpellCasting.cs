@@ -1,18 +1,21 @@
-﻿using DndMagicLibrary.Helpers;
+﻿using DndMagicLibrary.Data.Api;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DndMagicLibrary.Models
 {
     public class SpellCasting
     {
+        IApiHelper _helper;
+        public SpellCasting(IApiHelper helper)
+        {
+            _helper = helper;
+        }
+
         public string Url { get; set; }
         public string Class { get; set; }
         public string Name { get; set; }
@@ -23,7 +26,7 @@ namespace DndMagicLibrary.Models
         [HttpGet]
         async Task<SpellcastingAbility> GetSpellcastingAbility(string url)
         {
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+            using (HttpResponseMessage response = await _helper.ApiClient.GetAsync(url))
             {
                 SpellcastingAbility ability = new SpellcastingAbility();
                 if (response.IsSuccessStatusCode)

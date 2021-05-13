@@ -1,4 +1,5 @@
-﻿using DndMagicLibrary.Helpers;
+﻿using DndMagicLibrary.Data;
+using DndMagicLibrary.Data.Api;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,16 @@ namespace DndMagicLibrary.Models
 {
     public class DndClass : IDndClass
     {
+        IApiHelper _helper;
+        AllClasses _allClasses;
+
+        public DndClass() { }
+        public DndClass(IApiHelper helper)
+        {
+            _helper = helper;
+            _allClasses = new AllClasses(helper);
+        }
+
         public string Name { get; set; }
         public int GeneralIndex { get; set; }
         public int SpellcastingIndex { get; set; }
@@ -22,17 +33,22 @@ namespace DndMagicLibrary.Models
         [JsonIgnore]
         public Dictionary<int, IEnumerable<string>> Spells { get; set; }
 
-        public DndClass() { }
-        public DndClass(string name)
+        public DndClass(IApiHelper helper, string name)
         {
+            _helper = helper;
+            _allClasses = new AllClasses(helper);
+
             Name = name;
-            Description = AllClasses.DndClasses.Where(x => x.Name == name).FirstOrDefault().Description;
-            GeneralIndex = AllClasses.DndClasses.Where(x => x.Name == name).FirstOrDefault().GeneralIndex;
-            SpellcastingIndex = AllClasses.DndClasses.Where(x => x.Name == name).FirstOrDefault().SpellcastingIndex;
+            Description = _allClasses.GetDndClasses().Where(x => x.Name == name).FirstOrDefault().Description;
+            GeneralIndex = _allClasses.GetDndClasses().Where(x => x.Name == name).FirstOrDefault().GeneralIndex;
+            SpellcastingIndex = _allClasses.GetDndClasses().Where(x => x.Name == name).FirstOrDefault().SpellcastingIndex;
         }
 
-        public DndClass(string name, string description, int generalIndex, int spellcastingIndex)
+        public DndClass(IApiHelper helper, string name, string description, int generalIndex, int spellcastingIndex)
         {
+            _helper = helper;
+            _allClasses = new AllClasses(helper);
+
             Name = name;
             Description = description;
             GeneralIndex = generalIndex;
@@ -43,8 +59,8 @@ namespace DndMagicLibrary.Models
         public async Task<SpellCasting> GetSpellcastingData()
         {
             string url = $"http://www.dnd5eapi.co/api/spellcasting/{SpellcastingIndex}";
-            SpellCasting spellCasting = new SpellCasting();
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+            SpellCasting spellCasting = new SpellCasting(_helper);
+            using (HttpResponseMessage response = await _helper.ApiClient.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -63,7 +79,7 @@ namespace DndMagicLibrary.Models
         public async Task<DndClass> GetClassData(DndClass myClass)
         {
             var url = $"classes/{myClass.Name.ToLower()}";
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(ApiHelper.ApiClient.BaseAddress + url))
+            using (HttpResponseMessage response = await _helper.ApiClient.GetAsync(_helper.ApiClient.BaseAddress + url))
             {
                 if (response.IsSuccessStatusCode)
                 {

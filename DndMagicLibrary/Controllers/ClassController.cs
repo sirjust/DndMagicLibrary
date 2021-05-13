@@ -1,4 +1,5 @@
 ﻿using DndMagicLibrary.Data;
+using DndMagicLibrary.Data.Api;
 using DndMagicLibrary.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,6 +10,12 @@ namespace DndMagicLibrary.Controllers
     [RoutePrefix("Class")]
     public class ClassController : Controller
     {
+        IApiHelper _helper;
+        public ClassController(IApiHelper helper)
+        {
+            _helper = helper;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -17,7 +24,7 @@ namespace DndMagicLibrary.Controllers
         [Route("/{id}")]
         public async Task<ActionResult> ShowClass(string id)
         {
-            var dndClass = new DndClass(id);
+            var dndClass = new DndClass(_helper, id);
             var newModel = await dndClass.GetClassData(dndClass);
             newModel.Spells = GetSpellNames(dndClass.Name);
             return View(newModel);
