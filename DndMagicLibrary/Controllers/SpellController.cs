@@ -19,7 +19,7 @@ namespace DndMagicLibrary.Controllers
         {
             var spell = new Spell { Name = id };
             var apiName = spell.ConvertSpellName(id);
-            return View(await spell.GetSpellData(apiName, _helper));
+            return View(await _helper.GetSpellData(apiName));
         }
     }
 }

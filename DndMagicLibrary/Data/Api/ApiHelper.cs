@@ -84,6 +84,34 @@ namespace DndMagicLibrary.Data.Api
                 return ability;
             }
         }
+
+
+        [HttpGet]
+        public async Task<Spell> GetSpellData(string spell)
+        {
+            var url = $"spells/{spell}";
+            using (HttpResponseMessage response = await ApiClient.GetAsync(ApiClient.BaseAddress + url))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var apiSpell = new Spell();
+                    var data = await response.Content.ReadAsAsync<Spell>();
+                    apiSpell.Name = data.Name;
+                    apiSpell.Description = data.Description;
+                    apiSpell.CastingTime = data.CastingTime;
+                    apiSpell.Components = data.Components;
+                    apiSpell.Range = data.Range;
+                    apiSpell.Material = data.Material;
+                    apiSpell.Level = data.Level;
+                    apiSpell.School = data.School;
+                    return apiSpell;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 
     public interface IApiHelper
@@ -93,5 +121,6 @@ namespace DndMagicLibrary.Data.Api
         Task<SpellCasting> GetSpellcastingData(int spellCastingIndex);
         Task<SpellcastingAbility> GetSpellcastingAbility(string url);
         Task<DndClass> GetClassData(DndClass myClass);
+        Task<Spell> GetSpellData(string spell);
     }
 }

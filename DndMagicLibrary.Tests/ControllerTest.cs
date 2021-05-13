@@ -13,14 +13,15 @@ namespace DndMagicLibrary.Tests.Controllers
         ClassController _classController;
         SpellController _spellController;
         HomeController _homeController;
-        IApiHelper _helper;
+        Mock<IApiHelper> _helper;
 
         [TestInitialize]
         public void Start()
         {
-            _helper = new Mock<IApiHelper>().Object;
-            _classController = new ClassController(_helper);
-            _spellController = new SpellController(_helper);
+            _helper = new Mock<IApiHelper>();
+            _helper.Setup(x => x.GetSpellData(It.IsAny<string>())).ReturnsAsync(new Models.Spell());
+            _classController = new ClassController(_helper.Object);
+            _spellController = new SpellController(_helper.Object);
             _homeController = new HomeController();
         }
 

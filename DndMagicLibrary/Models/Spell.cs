@@ -1,11 +1,6 @@
-﻿using DndMagicLibrary.Data.Api;
-using Newtonsoft.Json;
-using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace DndMagicLibrary.Models
 {
@@ -25,33 +20,6 @@ namespace DndMagicLibrary.Models
         [JsonProperty("casting_time")]
         public string CastingTime { get; set; }
         public School School { get; set; }
-
-        [HttpGet]
-        public async Task<Spell> GetSpellData(string spell, IApiHelper helper)
-        {
-            var url = $"spells/{spell}";
-            using (HttpResponseMessage response = await helper.ApiClient.GetAsync(helper.ApiClient.BaseAddress + url))
-            {
-                if (response.IsSuccessStatusCode)
-                {
-                    var apiSpell = new Spell();
-                    var data = await response.Content.ReadAsAsync<Spell>();
-                    apiSpell.Name = data.Name;
-                    apiSpell.Description = data.Description;
-                    apiSpell.CastingTime = data.CastingTime;
-                    apiSpell.Components = data.Components;
-                    apiSpell.Range = data.Range;
-                    apiSpell.Material = data.Material;
-                    apiSpell.Level = data.Level;
-                    apiSpell.School = data.School;
-                    return apiSpell;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
-            }
-        }
 
         public string ConvertSpellName(string name)
         {
