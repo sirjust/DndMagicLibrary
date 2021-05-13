@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace DndMagicLibrary.Models
 {
@@ -12,8 +11,5 @@ namespace DndMagicLibrary.Models
         int Hit_Die { get; set; }
         SpellCasting SpellCasting { get; set; }
         Dictionary<int, IEnumerable<string>> Spells { get; set; }
-
-        Task<DndClass> GetClassData(DndClass dndClass);
-        Task<SpellCasting> GetSpellcastingData();
     }
 }

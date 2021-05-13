@@ -182,11 +182,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ApiHelper.cs" />
+    <Compile Include="Data\Api\ApiHelper.cs" />
     <Compile Include="Models\DndClass.cs" />
     <Compile Include="Models\IDndClass.cs" />
     <Compile Include="Models\ISpell.cs" />
-    <Compile Include="Helpers\AllClasses.cs" />
+    <Compile Include="Data\AllClasses.cs" />
     <Compile Include="Models\School.cs" />
     <Compile Include="Models\Spell.cs" />
     <Compile Include="Models\SpellCasting.cs" />
@@ -338,6 +338,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Helpers\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>

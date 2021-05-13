@@ -3,7 +3,7 @@
 
 namespace DndMagicLibrary.App_Start
 {
-    using DndMagicLibrary.Helpers;
+    using DndMagicLibrary.Data.Api;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;

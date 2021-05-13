@@ -24,8 +24,8 @@ namespace DndMagicLibrary.Controllers
         [Route("/{id}")]
         public async Task<ActionResult> ShowClass(string id)
         {
-            var dndClass = new DndClass(_helper, id);
-            var newModel = await dndClass.GetClassData(dndClass);
+            var dndClass = new DndClass(id);
+            var newModel = await _helper.GetClassData(dndClass);
             newModel.Spells = GetSpellNames(dndClass.Name);
             return View(newModel);
         }

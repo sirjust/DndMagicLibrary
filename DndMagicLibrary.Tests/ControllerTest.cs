@@ -21,7 +21,7 @@ namespace DndMagicLibrary.Tests.Controllers
             _helper = new Mock<IApiHelper>().Object;
             _classController = new ClassController(_helper);
             _spellController = new SpellController(_helper);
-            _homeController = new HomeController(_helper);
+            _homeController = new HomeController();
         }
 
         [TestMethod]
